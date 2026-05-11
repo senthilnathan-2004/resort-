@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Compass, Waves, Heart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 

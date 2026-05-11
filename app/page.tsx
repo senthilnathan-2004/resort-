@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Users, ArrowRight, Lock, Menu, X, Play, Star, ChevronRight, MessageSquare, Phone, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
@@ -59,10 +60,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80"
             alt="Luxury Resort"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            quality={85}
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -134,10 +139,13 @@ export default function Home() {
             {displayRooms.map((room) => (
               <div key={room._id} className="group cursor-pointer text-gray-900">
                 <div className="relative h-80 overflow-hidden mb-6">
-                  <img
-                    src={room.featuredImage || room.images?.[0]?.url}
-                    alt={room.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  <Image 
+                    src={room.featuredImage || (room.images && room.images[0]?.url) || "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"} 
+                    alt={room.name} 
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                    quality={75}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <h3 className="font-playfair text-2xl mb-2 group-hover:text-accent transition-colors text-primary">{room.name}</h3>

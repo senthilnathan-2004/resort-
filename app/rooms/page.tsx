@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Lock, Calendar, Star, Wifi, Coffee, Wind, Users, Home, ChevronRight, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
@@ -62,10 +63,14 @@ export default function RoomsPage() {
       {/* Header */}
       <header className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80"
-            className="w-full h-full object-cover"
-            alt="Luxury Rooms"
+          <Image 
+            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80" 
+            alt="Luxury Rooms" 
+            fill
+            className="object-cover"
+            priority
+            quality={85}
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
@@ -94,12 +99,15 @@ export default function RoomsPage() {
             displayRooms.map((room, index) => (
               <div key={room._id} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center group`}>
                 <div className="flex-1 w-full relative overflow-hidden h-[400px] lg:h-[550px] shadow-2xl">
-                  <img
-                    src={room.featuredImage || (room.images && room.images[0]?.url) || fallbackRooms[0].featuredImage}
-                    alt={room.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]"
+                  <Image 
+                    src={room.featuredImage || (room.images && room.images[0]?.url) || fallbackRooms[0].featuredImage} 
+                    alt={room.name} 
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-[2s]" 
+                    quality={75}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur px-6 py-4 shadow-xl">
+                  <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur px-6 py-4 shadow-xl z-10">
                     <span className="text-primary font-bold text-2xl">${room.pricePerNight?.toLocaleString()}</span>
                     <span className="text-gray-500 text-sm ml-2">/ night</span>
                   </div>

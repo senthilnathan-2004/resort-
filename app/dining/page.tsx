@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Utensils, Wine, Clock, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
