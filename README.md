@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aura Resort | Luxury Redefined
+
+![Aura Resort](https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80)
+
+Aura Resort is a premium, production-ready luxury resort platform built with **Next.js 16**, **MongoDB**, and **Tailwind CSS**. It features a modern "Glossy Card" design language, fully responsive layouts, and a robust admin dashboard for managing bookings, rooms, and inquiries.
+
+## Features
+
+- **Premium UI/UX**: Glossy glassmorphism design with fluid animations using Framer Motion (Tailwind-integrated).
+- **Room Management**: Dynamic room listing with real-time availability and database integration.
+- **Smart Booking System**: Multi-step, secure booking flow with instant validation.
+- **Admin Dashboard**: Secure role-based access for managing:
+  - Real-time Bookings (Confirm/Cancel/Delete)
+  - Room Inventory (Add/Edit/Delete)
+  - Customer Inquiries
+  - Analytics Overview
+- **Image Optimization**: Next.js 16 Image component integration for lightning-fast loading and WebP support.
+- **Newsletter & Inquiries**: Integrated lead generation and contact systems.
+- **Fully Responsive**: Seamless experience across mobile, tablet, and desktop.
+
+## Tech Stack
+
+- **Frontend**: Next.js 16 (App Router), React 19, Tailwind CSS 4.
+- **Backend**: Next.js Serverless Functions, Mongoose (MongoDB).
+- **Authentication**: NextAuth.js (Role-based: User/Admin).
+- **Icons**: Lucide React.
+- **Validation**: Zod + React Hook Form.
 
 ## Getting Started
 
-First, run the development server:
+### 1. Prerequisites
+- Node.js 18.x or later
+- MongoDB Atlas account (or local MongoDB instance)
 
+### 2. Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/aura-resort.git
+cd aura-resort
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Environment Setup
+Create a `.env.local` file in the root directory and add the following:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+# Database
+MONGODB_URI=your_mongodb_connection_string
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Authentication
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_secret_key
 
-## Learn More
+# Admin Credentials
+ADMIN_EMAIL=admin@aura.com
+ADMIN_PASSWORD=your_secure_password
 
-To learn more about Next.js, take a look at the following resources:
+# Optional: ImageKit/Cloudinary
+NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=your_endpoint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Running the Project
+```bash
+# Development mode
+npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Production build
+npm run build
+npm start
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/`: Next.js App Router (Pages, API Routes, Layouts)
+- `components/`: Reusable UI components (Navbar, Footer, Gallery)
+- `models/`: Mongoose Schemas (Booking, Room, Inquiry)
+- `lib/`: Shared utilities (Database connection, Auth options)
+- `public/`: Static assets
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Security
+- CSRF protection enabled via NextAuth.js.
+- Protected Admin API routes with role-based session validation.
+- Sanitized database queries via Mongoose.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Built with  by [Senthilnathan R](https://github.com/senthilnathanr)
+# resort-
