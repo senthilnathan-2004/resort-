@@ -138,7 +138,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayRooms.map((room) => (
               <div key={room._id} className="group cursor-pointer text-gray-900">
-                <div className="relative h-80 overflow-hidden mb-6">
+                <div className="relative h-72 sm:h-80 overflow-hidden mb-6 rounded-sm">
                   <Image 
                     src={room.featuredImage || (room.images && room.images[0]?.url) || "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"} 
                     alt={room.name} 

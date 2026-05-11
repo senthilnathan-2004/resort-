@@ -98,7 +98,7 @@ export default function RoomsPage() {
           ) : (
             displayRooms.map((room, index) => (
               <div key={room._id} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center group`}>
-                <div className="flex-1 w-full relative overflow-hidden h-[400px] lg:h-[550px] shadow-2xl">
+                <div className="w-full relative overflow-hidden h-[350px] lg:h-[550px] shadow-2xl rounded-sm">
                   <Image 
                     src={room.featuredImage || (room.images && room.images[0]?.url) || fallbackRooms[0].featuredImage} 
                     alt={room.name} 
