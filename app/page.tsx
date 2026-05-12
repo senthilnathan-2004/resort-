@@ -76,7 +76,7 @@ export default function Home() {
           <span className="block text-sm font-black tracking-[0.3em] uppercase mb-4 text-accent drop-shadow-lg">
             Welcome to Paradise
           </span>
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-9xl font-black mb-6 drop-shadow-2xl">
+          <h1 className="font-playfair text-[15vw] sm:text-[13vw] md:text-8xl lg:text-9xl font-black mb-6 drop-shadow-2xl whitespace-nowrap">
             Aura Resort
           </h1>
           <p className="max-w-2xl mx-auto text-base md:text-xl font-black uppercase tracking-[0.2em] mb-10 text-white drop-shadow-lg">
